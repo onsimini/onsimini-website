@@ -1,0 +1,9 @@
+{% extends "admin/layout.html" %}
+
+{% block content_layout %}
+
+{% for post in posts %}
+    <p>{{ post.title }} -- {{ post.content }}</p>
+{% endfor %}
+
+{% endblock content_layout %}
