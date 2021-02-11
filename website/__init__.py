@@ -17,8 +17,6 @@ def create_app(config_filename):
 
     with app.app_context():
 
-        db.create_all()
-
         from website.admin.view import admin
         from website.blog.view import blog
         app.register_blueprint(admin)

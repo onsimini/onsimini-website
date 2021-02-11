@@ -2,8 +2,13 @@
 
 {% block content_layout %}
 
-{% for post in posts %}
-    <p>{{ post.title }} -- {{ post.content }}</p>
-{% endfor %}
+<div class="content-section">
+    <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+        </div>
+    </form>
+</div>
 
 {% endblock content_layout %}
