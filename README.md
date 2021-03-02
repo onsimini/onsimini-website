@@ -2,6 +2,8 @@
 ## Onsimini - The Gontran Sion personal website.
 (Running on Python 3.8.1)
 
+![workflow-status](https://github.com/onsimini/onsimini-website/workflows/dev-build/badge.svg?branch=dev)
+
 ## Description:
 Basique 'Hello World!' flask page.
 
