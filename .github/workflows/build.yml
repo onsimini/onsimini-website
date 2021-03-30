@@ -1,0 +1,27 @@
+name: build
+
+on:
+  push:
+  pull_request:
+    branches:
+      - master
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Set up Python
+      uses: actions/setup-python@v1
+      with:
+        python-version: '3.8'
+
+    - name: flake8 Lint
+      uses: py-actions/flake8@v1
+
+    - name: Install requierement
+      run: pip install -r requirements.txt
+
+    - name: Pytest
+      run: python -m pytest
