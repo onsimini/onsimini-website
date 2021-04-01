@@ -1,6 +1,54 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} - website</title>
-<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2b4bfe781c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imgs/favicon.png')}}" sizes="32x32" type="image/png">
+    {% if title %}
+        <title>Onsimini WebSite - {{ title }}</title>
+    {% else %}
+        <title>Onsimini WebSite</title>
+    {% endif %}
+</head>
+<body>
+
+
+    <!-- HEADER -->
+    <div class="jumbotron jumbotron-fluid bg-dark" style="height: 80px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 0px;">
+      <div class="container media align-self-center">
+        <a href="{{url_for('index')}}" class="media">
+          <span class="mr-3" style="font-size: 40px; color: white;">
+            <i class="fas fa-satellite"></i>
+          </span>
+          <div class="media-body align-self-center">
+            <h2 class="mt-0" style="color: white;">Onsimini.com</h2>
+          </div>
+        </a>
+        <div class="col"></div>
+        <a href="https://github.com/onsimini" class="media align-self-center">
+          <span style="font-size: 25px; color: white; margin-right: 10px;">
+            <i class="fab fa-github"></i>
+          </span>
+        </a>
+        <a href="https://www.instagram.com/onsimini/" class="media align-self-center">
+          <span style="font-size: 25px; color: white;">
+            <i class="fab fa-instagram"></i>
+          </span>
+        </a>
+        <a href="https://twitter.com/onsimini/" class="media align-self-center" style="padding-left: 10px;">
+          <span style="font-size: 25px; color: white;">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+
+
 <nav>
   <h1>website</h1>
   <ul>
@@ -22,3 +70,5 @@
   {% endfor %}
   {% block content %}{% endblock %}
 </section>
+</body>
+</html>
