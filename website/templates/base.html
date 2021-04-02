@@ -17,7 +17,6 @@
 </head>
 <body>
 
-
     <!-- HEADER -->
     <div class="jumbotron jumbotron-fluid bg-dark" style="height: 80px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 0px;">
       <div class="container media align-self-center">
@@ -48,41 +47,19 @@
       </div>
     </div>
 
-
-    <div class="jumbotron jumbotron-fluid" style="margin: 0px;">
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 20px;">
       <div class="container">
         <h1 class="display-4">Hello, world!</h1>
         <p class="lead">Here is my first website implementation with Flask and Bootstrap.</p>
       </div>
     </div>
 
-
-<nav>
-  <h1>website</h1>
-  <ul>
-    {% if g.user %}
-      <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
-    {% else %}
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
-    {% endif %}
-  </ul>
-</nav>
-
-<section class="content">
-  <header>
-    {% block header %}{% endblock %}
-  </header>
-  {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-  {% endfor %}
+    <section class="content">
       <!-- CONTENT -->
       <div style="min-height: 800px;">
         {% block content %}{% endblock %}
       </div>
-</section>
-
-
+    </section>
 
     <!-- FOOTER -->
     <div class="jumbotron jumbotron-fluid bg-dark" style="height: 80px; padding-top: 20px; padding-bottom: 10px; margin-bottom: 0px;">
