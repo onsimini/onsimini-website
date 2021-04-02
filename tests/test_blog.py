@@ -2,20 +2,6 @@ import pytest
 from website.db import get_db
 
 
-# def test_index(client, auth):
-#     response = client.get('/')
-#     # assert b"Log In" in response.data
-#     # assert b"Register" in response.data
-
-#     auth.login()
-#     response = client.get('/')
-#     # assert b'Log Out' in response.data
-#     assert b'test title' in response.data
-#     # assert b'test 2018-01-01' in response.data
-#     assert b'test\nbody' in response.data
-#     assert b'href="/1/update"' in response.data
-
-
 @pytest.mark.parametrize('path', (
     '/create',
     '/1/update',
@@ -70,16 +56,6 @@ def test_update(client, auth, app):
         db = get_db()
         post = db.execute('SELECT * FROM post WHERE id = 1').fetchone()
         assert post['title'] == 'updated'
-
-
-# @pytest.mark.parametrize('path', (
-#     '/create',
-#     '/1/update',
-# ))
-# def test_create_update_validate(client, auth, path):
-#     auth.login()
-#     response = client.post(path, data={'title': '', 'body': ''})
-#     assert b'Title is required.' in response.data
 
 
 def test_delete(client, auth, app):
