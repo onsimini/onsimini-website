@@ -10,8 +10,13 @@ bp = Blueprint('admin', __name__, url_prefix='/admin')
 
 @bp.route('/', methods=('GET', 'POST'))
 def admin():
-
+    db = get_db()
     error = None
+
+    users = db.execute(
+        'SELECT username '
+        'FROM user'
+    ).fetchall()
 
     if request.method == 'POST':
         if request.form['logout']:
@@ -21,7 +26,7 @@ def admin():
     if error:
         flash(error)
 
-    return render_template('admin/index.html')
+    return render_template('admin/index.html', users=users)
 
 
 @bp.route('/login', methods=('GET', 'POST'))
@@ -79,3 +84,13 @@ def register():
         flash(error)
 
     return render_template('admin/index.html')
+
+
+@bp.route('/delete_user', methods=('GET', 'POST'))
+def delete_user():
+    if request.method == 'POST':
+        usr = request.form['user']
+        db = get_db()
+        db.execute('DELETE FROM user WHERE username = ?', (str(usr),))
+        db.commit()
+    return redirect(url_for('admin.admin'))
