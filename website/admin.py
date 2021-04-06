@@ -99,3 +99,8 @@ def delete_user():
         db.execute('DELETE FROM user WHERE username = ?', (str(usr),))
         db.commit()
     return redirect(url_for('admin.admin'))
+
+
+@bp.route('/sn')
+def sn():
+    return render_template('admin/sn.html')

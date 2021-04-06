@@ -10,6 +10,11 @@
     {% endfor %}
   </ul>
 
+  Add Post:
+  <form method="post">
+    <textarea id="summernote" name="editordata"></textarea>
+  </form>
+
     User liste:
     <ul>
       {% for user in users %}
@@ -31,4 +36,10 @@
     </form>
 
   {% endif %}
+
+  <script>
+    $(document).ready(function() {
+        $('#summernote').summernote();
+    });
+  </script>
 {% endblock %}
