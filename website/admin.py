@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, flash, redirect, render_template, request, session, url_for
+    Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from website.db import get_db
@@ -101,6 +101,26 @@ def delete_user():
     return redirect(url_for('admin.admin'))
 
 
-@bp.route('/sn')
-def sn():
-    return render_template('admin/sn.html')
+@bp.route('/add_post', methods=('GET', 'POST'))
+def add_post():
+    if request.method == 'POST':
+        title = request.form['title']
+        body = request.form['editordata']
+        error = None
+
+        if not title:
+            error = 'Title is required.'
+
+        if error is not None:
+            flash(error)
+        else:
+            db = get_db()
+            db.execute(
+                'INSERT INTO post (title, body, author_id) '
+                'VALUES (?, ?, ?)',
+                (title, body, g.user['id'])
+            )
+            db.commit()
+            return redirect(url_for('admin.admin'))
+
+    return render_template('admin/index.html')

@@ -11,8 +11,10 @@
   </ul>
 
   Add Post:
-  <form method="post">
+  <form action = "{{ url_for('admin.add_post') }}" method="post">
+    <input type="text" name="title">
     <textarea id="summernote" name="editordata"></textarea>
+    <input type="submit" value="Save">
   </form>
 
     User liste:
@@ -27,7 +29,7 @@
     </ul>
 
     Add an User: 
-    <form action = "{{ url_for('admin.register') }}"  method="post">
+    <form action = "{{ url_for('admin.register') }}" method="post">
       <label for="username">Username</label>
       <input name="username" id="username" required>
       <label for="password">Password</label>
