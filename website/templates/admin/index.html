@@ -14,8 +14,8 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col" style="padding: 10px; border: 1px solid black; margin: 10px;">
+    <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
+        <div class="col">
             Add Post:
             <form action = "{{ url_for('admin.add_post') }}" method="post">
                 <input type="text" name="title">
@@ -37,13 +37,15 @@
     <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
         <div class="col">
             User liste:
-            <ul>
+            <ul style="display: inline;">
                 {% for user in users %}
-                    <li>{{ user['username'] }}</li>
-                    <form action = "{{ url_for('admin.delete_user') }}" method = "post">
-                        <input type="hidden" name="user" value="{{ user['username'] }}">
-                        <input name = "{{ user['username'] }}_Delete" type = "submit" value = "Delete" />
-                    </form>
+                    <li>
+                        <h5>{{ user['username'] }}</h5>
+                        <form action = "{{ url_for('admin.delete_user') }}" method = "post">
+                            <input type="hidden" name="user" value="{{ user['username'] }}">
+                            <input name = "{{ user['username'] }}_Delete" type = "submit" value = "Delete" />
+                        </form>
+                    </li>
                 {% endfor %}
             </ul>
         </div>
