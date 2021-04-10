@@ -3,7 +3,6 @@
 {% block admin_content %}
 <div class="container">
     <div class="row justify-content-end">
-        <!-- <div class="col-10"></div> -->
         <div class="col-3">
             <div class="container media" style="padding-top: 3px;">
                 <span style="padding-right: 10px; padding-top: 3px;">
@@ -16,6 +15,16 @@
         </div>
     </div>
     <div class="row">
+        <div class="col" style="padding: 10px; border: 1px solid black; margin: 10px;">
+            Add Post:
+            <form action = "{{ url_for('admin.add_post') }}" method="post">
+                <input type="text" name="title">
+                <textarea id="summernote" name="editordata"></textarea>
+                <input type="submit" value="Save">
+            </form>
+        </div>
+    </div>
+    <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
         <div class="col">
         Posts liste:
         <ul>
@@ -25,17 +34,7 @@
         </ul>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            Add Post:
-            <form action = "{{ url_for('admin.add_post') }}" method="post">
-                <input type="text" name="title">
-                <textarea id="summernote" name="editordata"></textarea>
-                <input type="submit" value="Save">
-            </form>
-        </div>
-    </div>
-    <div class="row">
+    <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
         <div class="col">
             User liste:
             <ul>
@@ -49,7 +48,7 @@
             </ul>
         </div>
     </div>
-    <div class="row">
+    <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
         <div class="col">
             Add an User: 
             <form action = "{{ url_for('admin.register') }}" method="post">
