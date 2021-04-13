@@ -23,6 +23,11 @@ def admin():
         'FROM post p JOIN user u ON p.author_id = u.id',
     ).fetchall()
 
+    var_site = db.execute(
+        'SELECT * '
+        'FROM var_site'
+    ).fetchall()
+
     if request.method == 'POST':
         if request.form['logout']:
             session.clear()
@@ -31,7 +36,10 @@ def admin():
     if error:
         flash(error)
 
-    return render_template('admin/index.html', posts=posts, users=users)
+    return render_template('admin/index.html',
+                           posts=posts,
+                           users=users,
+                           var_site=var_site)
 
 
 @bp.route('/login', methods=('GET', 'POST'))

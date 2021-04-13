@@ -5,3 +5,8 @@ VALUES
 INSERT INTO post (title, body, author_id, created)
 VALUES
   ('Welcome!', 'test' || x'0a' || 'body', 1, '2021-04-01 17:00:00');
+
+INSERT INTO var_site (varname, varvalue)
+VALUES
+  ('junbo_title', 'Hello, world!'),
+  ('junbo_subtitle', 'Here is my first website implementation with Flask and Bootstrap.');

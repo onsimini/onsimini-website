@@ -16,6 +16,16 @@
     </div>
     <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
         <div class="col">
+        Var liste:
+        <ul>
+            {% for var in var_site %}
+                <li>{{ var['varname'] }}, {{ var['varvalue'] }}</li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+    <div class="row" style="padding: 10px; border: 1px solid black; margin: 10px;">
+        <div class="col">
             Add Post:
             <form action = "{{ url_for('admin.add_post') }}" method="post">
                 <input type="text" name="title">
