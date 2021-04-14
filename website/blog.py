@@ -21,11 +21,12 @@ def index():
                    for var
                    in var_site
                    if var['varname'] == 'junbo_title']
+    junbo_title.append("")
     junbo_subtitle = [var['varvalue']
                       for var
                       in var_site
                       if var['varname'] == 'junbo_subtitle']
-
+    junbo_subtitle.append("")
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username '
         'FROM post p JOIN user u ON p.author_id = u.id '
