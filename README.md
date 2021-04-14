@@ -21,3 +21,8 @@ Basique 'Hello World!' flask page.
   * export FLASK_APP=website
   * flask run
   * open the URL (http://127.0.0.1:5000/)
+
+## run test:
+  * python -m pytest
+  * flake8 website
+  * flake8 test
