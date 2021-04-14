@@ -19,7 +19,14 @@
         Var liste:
         <ul>
             {% for var in var_site %}
-                <li>{{ var['varname'] }}, {{ var['varvalue'] }}</li>
+                <li>
+                    {{ var['varname'] }},
+                    <form action = "{{ url_for('admin.update_site_variable') }}" method="post">
+                        <input type="hidden" name="varname" value="{{  var['varname'] }}">
+                        <input type="text" name="varvalue" value="{{ var['varvalue'] }}" required>
+                        <input type="submit" value="Save">
+                    </form>
+                </li>
             {% endfor %}
         </ul>
         </div>

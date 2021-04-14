@@ -132,3 +132,10 @@ def add_post():
             return redirect(url_for('admin.admin'))
 
     return render_template('admin/index.html')
+
+
+@bp.route('/update_site_variable', methods=('GET', 'POST'))
+def update_site_variable():
+    # if request.method == 'POST':
+
+    return render_template('admin/index.html')
