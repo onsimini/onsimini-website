@@ -49,8 +49,16 @@
 
     <div class="jumbotron jumbotron-fluid" style="margin-bottom: 20px;">
       <div class="container">
-        <h1 class="display-4">Hello, world!</h1>
-        <p class="lead">Here is my first website implementation with Flask and Bootstrap.</p>
+        {% if junbo_title %}
+          <h1 class="display-4">{{ junbo_title }}</h1>
+        {% else %}
+          <h1 class="display-4">Hello World!</h1>
+        {% endif %}
+        {% if junbo_title %}
+          <p class="lead">{{ junbo_subtitle }}</p>
+        {% else %}
+          <p class="lead">Here is my first website implementation with Flask and Bootstrap.</p>
+        {% endif %}
       </div>
     </div>
 

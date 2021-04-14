@@ -12,12 +12,29 @@ bp = Blueprint('blog', __name__)
 @bp.route('/')
 def index():
     db = get_db()
+    var_site = db.execute(
+        'SELECT * '
+        'FROM var_site'
+    ).fetchall()
+
+    junbo_title = [var['varvalue']
+                   for var
+                   in var_site
+                   if var['varname'] == 'junbo_title']
+    junbo_subtitle = [var['varvalue']
+                      for var
+                      in var_site
+                      if var['varname'] == 'junbo_subtitle']
+
     posts = db.execute(
         'SELECT p.id, title, body, created, author_id, username '
         'FROM post p JOIN user u ON p.author_id = u.id '
         'ORDER BY created DESC'
     ).fetchall()
-    return render_template('blog/index.html', posts=posts)
+    return render_template('blog/index.html',
+                           posts=posts,
+                           junbo_title=junbo_title[0],
+                           junbo_subtitle=junbo_subtitle[0])
 
 
 @bp.route('/create', methods=('GET', 'POST'))
