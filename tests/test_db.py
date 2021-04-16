@@ -1,5 +1,4 @@
 import sqlite3
-
 import pytest
 from website.db import get_db
 
@@ -24,6 +23,5 @@ def test_get_close_db(app):
 
 #     monkeypatch.setattr('website.db.init_db', fake_init_db)
 #     result = runner.invoke(args=['init-db'])
-#     print(f'result: {result}')
 #     assert 'Initialized' in result.output
 #     assert Recorder.called
