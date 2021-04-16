@@ -14,6 +14,7 @@ Basique 'Hello World!' flask page.
   * source env/bin/activate
   * pip install --upgrade pip
   * pip install -r requirements.txt
+  * flask init-db
   * ( deactivate )
 
 ## run:
