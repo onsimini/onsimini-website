@@ -7,6 +7,6 @@ def client():
     return app.test_client()
 
 
-def test_hello(client):
+def test_index(client):
     response = client.get('/')
-    assert response.data == b'Hello, World!'
+    assert response.status_code == 200

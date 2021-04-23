@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/2b4bfe781c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='imgs/favicon.png')}}" sizes="32x32" type="image/png">
+    {% if title %}
+        <title>Onsimini WebSite - {{ title }}</title>
+    {% else %}
+        <title>Onsimini WebSite</title>
+    {% endif %}
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div class="jumbotron jumbotron-fluid bg-dark" style="height: 80px; padding-top: 10px; padding-bottom: 10px; margin-bottom: 0px;">
+      <div class="container media align-self-center">
+        <a href="{{url_for('index')}}" class="media">
+          <span class="mr-3" style="font-size: 40px; color: white;">
+            <i class="fas fa-satellite"></i>
+          </span>
+          <div class="media-body align-self-center">
+            <h2 class="mt-0" style="color: white;">Onsimini.com</h2>
+          </div>
+        </a>
+        <div class="col"></div>
+        <a href="https://github.com/onsimini" class="media align-self-center">
+          <span style="font-size: 25px; color: white; margin-right: 10px;">
+            <i class="fab fa-github"></i>
+          </span>
+        </a>
+        <a href="https://www.instagram.com/onsimini/" class="media align-self-center">
+          <span style="font-size: 25px; color: white;">
+            <i class="fab fa-instagram"></i>
+          </span>
+        </a>
+        <a href="https://twitter.com/onsimini/" class="media align-self-center" style="padding-left: 10px;">
+          <span style="font-size: 25px; color: white;">
+            <i class="fab fa-twitter"></i>
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid" style="margin-bottom: 20px;">
+      <div class="container">
+        {% if junbo_title %}
+          <h1 class="display-4">{{ junbo_title }}</h1>
+        {% else %}
+          <h1 class="display-4">Hello World!</h1>
+        {% endif %}
+        {% if junbo_title %}
+          <p class="lead">{{ junbo_subtitle }}</p>
+        {% else %}
+          <p class="lead">Here is my first website implementation with Flask and Bootstrap.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <section class="content">
+      <!-- CONTENT -->
+      <div style="min-height: 800px;">
+        {% block content %}{% endblock %}
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="jumbotron jumbotron-fluid bg-dark" style="height: 80px; padding-top: 20px; padding-bottom: 10px; margin-bottom: 0px;">
+      <div class="container media">
+        <div class="media-body">
+          <h6 class="mt-0 text-center" style="color: white;">Onsimini.com by Gontran SION.</h6>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  </body>
+</html>
