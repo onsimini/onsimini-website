@@ -9,4 +9,4 @@ bp = Blueprint('blog',
 
 @bp.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('blog-index.html')
