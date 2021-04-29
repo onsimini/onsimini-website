@@ -10,3 +10,7 @@ bp = Blueprint('blog',
 @bp.route('/')
 def index():
     return render_template('blog-index.html')
+
+@bp.route('/post/<id>')
+def blogPost(id):
+    return "<h1>post {}</h1>".format(id)
