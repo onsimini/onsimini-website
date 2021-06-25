@@ -8,8 +8,3 @@ def test_config():
 def test_index(client):
     response = client.get('/')
     assert response.status_code == 200
-
-
-def test_admin(client):
-    response = client.get('/admin/')
-    assert response.status_code == 200
