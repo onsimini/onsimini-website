@@ -7,7 +7,7 @@ on:
       - master
       - dev
       - dev2
-	  - new_start
+      - new_start
 
 jobs:
   build:
