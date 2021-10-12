@@ -10,7 +10,7 @@ Basique 'Hello World!' flask page.
 
 ## install:
   * git clone the repo
-  * python3.8 -m venv env
+  * python -m venv env
   * source env/bin/activate
   * pip install --upgrade pip
   * pip install -r requirements.txt
@@ -19,7 +19,7 @@ Basique 'Hello World!' flask page.
 
 ## run:
   * ( source env/bin/activate )
-  * export FLASK_APP=website
+  * export FLASK_APP=run
   * flask run
   * open the URL (http://127.0.0.1:5000/)
 
